@@ -1,0 +1,139 @@
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+
+  }
+  body {
+    line-height: 1.6;
+    margin: 0;
+     }
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: #34495e;
+    text-decoration: none;
+    }
+
+.logo {
+    margin: 0;
+    padding-right: 5px;
+    font-size: 1.1em;
+    }
+
+section {
+    padding: 5px 5px;
+    margin: 5px;
+
+}
+.header {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: .5em;
+    border: 1px solid #646174;
+    background-color: #a2ccea;
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+
+    border-radius: 5px;
+    position:sticky;
+    top: 0;
+}
+.nav {
+    margin-top: 5px;
+     }
+
+.nav a {
+    padding: 10px 15px;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    color: #34495e;
+    font-size: .99em;
+       }
+
+/* Pseudo-class selector */
+.nav a:hover {
+    background-color: #7ebeb6;
+    color: #092747;
+    border-radius: 5px;
+             }
+    /* 
+      Applies when the browser's width is 800px wide or wider: 
+    */
+
+@media (min-width: 800px) {
+    .header,
+    .nav {
+        display: flex;
+    }
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+    .logo {
+        visibility: visible;
+    }
+}
+
+
+@media (min-width: 1000px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+}
+
+@media (max-width: 800px) {
+    .logo {
+        display: none;
+    }
+}
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #7ebeb6;
+    border-radius: 5px;
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+}
+
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width: 50%;
+    margin: 0 auto;
+    text-align: justify;
+    
+    
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: rgba(45, 54, 64, 0.25);
+    border-radius: 10px;
+    margin: 10px;
+}
+.content header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+@media (max-width: 600px) {
+    .center {
+        width: auto;
+        margin: auto;
+    }
+
+}
