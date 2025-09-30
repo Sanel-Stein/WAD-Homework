@@ -175,6 +175,6 @@ section {
     margin-bottom: 15px;
     font-size: x-large;
     transform: scale(1.20);
-    padding-left: 5px;
-    padding-right: 5px;
+    position: relative;
+    left: 35%;
 }
