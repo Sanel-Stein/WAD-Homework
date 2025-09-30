@@ -173,8 +173,7 @@ section {
     color: whitesmoke;
     margin-top: 15px;
     margin-bottom: 15px;
+    padding-top: 5px;
     font-size: x-large;
-    transform: scale(1.20);
-    position: relative;
-    left: 35%;
+    transform: scale(0.80);
 }
