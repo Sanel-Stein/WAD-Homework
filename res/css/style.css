@@ -2,11 +2,23 @@
     font-family: sans-serif;
     box-sizing: border-box;
 
-  }
-  body {
+}
+
+body {
     line-height: 1.6;
     margin: 0;
-     }
+}
+
+/* General Sibling Selector */
+header ~ h2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* Adjacent Sibling Selector  */
+h2 + h2 {
+    font-weight: normal;
+}
 
 ul {
     margin: 0;
@@ -17,19 +29,20 @@ ul {
 a {
     color: #34495e;
     text-decoration: none;
-    }
+}
+
 
 .logo {
     margin: 0;
     padding-right: 5px;
     font-size: 1.1em;
-    }
+}
 
 section {
     padding: 5px 5px;
     margin: 5px;
-
 }
+
 .header {
     padding-top: .5em;
     padding-bottom: .5em;
@@ -42,9 +55,10 @@ section {
     position:sticky;
     top: 0;
 }
+
 .nav {
     margin-top: 5px;
-     }
+}
 
 .nav a {
     padding: 10px 15px;
@@ -53,14 +67,14 @@ section {
     display: block;
     color: #34495e;
     font-size: .99em;
-       }
+}
 
 /* Pseudo-class selector */
 .nav a:hover {
     background-color: #7ebeb6;
     color: #092747;
     border-radius: 5px;
-             }
+}
     /* 
       Applies when the browser's width is 800px wide or wider: 
     */
@@ -85,7 +99,6 @@ section {
         flex-direction: row;
         justify-content: space-between;
     }
-
 }
 
 @media (max-width: 800px) {
@@ -111,9 +124,8 @@ section {
     width: 50%;
     margin: 0 auto;
     text-align: justify;
-    
-    
 }
+
 .content {
     display: flex;
     flex-direction: column;
@@ -122,12 +134,12 @@ section {
     border-radius: 10px;
     margin: 10px;
 }
+
 .content header{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
 }
 
 @media (max-width: 600px) {
@@ -135,5 +147,26 @@ section {
         width: auto;
         margin: auto;
     }
+}
 
+ 
+.loginBox h2 {
+    align-self: center;
+}
+
+.header > h2{
+    align-self: center;
+}
+#action {
+    color:deepskyblue;
+    font-weight:normal;
+}
+
+
+.loginBox input {
+    width: 50%;
+    font-size:x-large;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    position:;
 }
