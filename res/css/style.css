@@ -150,23 +150,29 @@ section {
 }
 
  
-.loginBox h2 {
-    align-self: center;
+.loginBox {
+    align-items: center;
 }
 
-.header > h2{
-    align-self: center;
-}
 #action {
     color:deepskyblue;
     font-weight:normal;
 }
-
 
 .loginBox input {
     width: 50%;
     font-size:x-large;
     padding-bottom: 10px;
     margin-top: 10px;
-    position:;
+    position: relative;
+    left: 25%;
+}
+
+.loginBox button {
+    background-color:royalblue;
+    color: whitesmoke;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: x-large;
+    transform: scale(1.20);
 }
