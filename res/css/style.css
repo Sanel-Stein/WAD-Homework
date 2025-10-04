@@ -177,3 +177,60 @@ section {
     font-size: x-large;
     transform: scale(0.80);
 }
+
+.postBody{
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    resize: none;
+}
+
+.postBody > label {
+    margin-right: 5px;
+    min-width: 40px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.postBody > textarea {
+    flex: 1;
+    resize: none;
+    font-size: 1rem;
+    max-width: 150px;
+    height: 80px;
+}
+
+.postFileInput{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-right: 92px;
+    max-height: 10px;
+}
+
+.postFileInput > label{
+    min-width: 100px;
+    text-align: right;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.hiddenInputButton{
+    display: none;
+}
+
+.customPostFileInputButton{
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: dimgray;
+    color: white;
+    border-radius: 0;
+    border: 1px solid black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
