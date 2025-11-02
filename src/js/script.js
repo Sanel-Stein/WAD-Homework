@@ -1,3 +1,4 @@
+//Post Creating
 window.onload = function() {
     //fetch('https://www.jsonkeeper.com/b/ZBRAH')
     fetch('res/json/myjson.json')

@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="res/images/f.png">
     <link rel="stylesheet" href="res/css/style.css">
     <title>addPost</title>
   </head>
@@ -11,7 +12,15 @@
         <ul class="nav">
             <li><a href="index.html">Home</a></li>
         </ul>
-        <a class="logo" href="login.html"><img src="res/images/me.png" width="50" height="50" alt="My picture"></a>
+        <div class="menu-container">
+        <!--<a class="logo" href="login.html"><img src="res/images/me.png" width="50" height="50" alt="My picture"></a>-->
+        <i class="menu_icon"><img src="res/images/me.png" width="50" height="50" alt="My picture"></i>
+        <div class="dropDownMenu">
+            <p>Master Rat Splinter</p>
+            <p>master.splinter4@ratmail.com</p>
+            <a>Log out</a>
+        </div>
+        </div>
   </header>
 
 
@@ -31,5 +40,6 @@
         </form>
         </div>
     </section>
+    <script type="text/javascript" src="src/js/dropDownMenu.js"></script>
 </body>
 </html>
