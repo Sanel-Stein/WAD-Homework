@@ -1,10 +1,10 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import ThePosts from '../components/ThePosts.vue'
 </script>
 
 <template>
   
   <main>
-    <TheWelcome />
+    <ThePosts />
   </main>
 </template>

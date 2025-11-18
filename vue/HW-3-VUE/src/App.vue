@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
 </script>
 
 <template>
@@ -10,12 +10,20 @@ import Header from './components/Header.vue'
   </header>
 
   <RouterView />
+  <footer>
+    <Footer />
+  </footer>
 </template>
 
 <style scoped>
 header {
   line-height: 1.5;
   max-height: 100vh;
+  width: 100%;
+}
+
+footer {
+  height: 50px;
   width: 100%;
 }
 
@@ -52,7 +60,7 @@ nav a:first-of-type {
 @media (min-width: 1024px) {
   header {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
   }
 
@@ -62,11 +70,11 @@ nav a:first-of-type {
 
   header .wrapper {
     display: flex;
-    place-items: flex-start;
   }
 
   nav {
-    text-align: left;
+    display: flex;
+    text-align: center;
     margin-left: -1rem;
     font-size: 1rem;
 

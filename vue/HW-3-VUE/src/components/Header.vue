@@ -1,11 +1,11 @@
   <template>
   <div class="header">
-        <ul class="nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="addPost.html">addPost</a></li>
-        </ul>
-        <div class="menu-container">
-        <i class="menu_icon"><img src="@\components\icons\me.png" width="50" height="50" alt="My picture"></i>
+        <nav>
+            <router-link to="/">Home</router-link> |
+            <router-link to="/signup">SignUp</router-link>
+        </nav>
+        <div>
+          <i class="menu_icon"><img src="@\components\icons\me.png" width="50" height="50" alt="My picture"></i>
         </div>
     </div>
   </template>
@@ -27,5 +27,16 @@
     border-radius: 5px;
     position:sticky;
     top: 0;
+
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.header nav{
+  flex-grow: 1;
+  text-align: center;
+}
+.menu_icon {
+  padding-right: .5em;
 }
 </style>
