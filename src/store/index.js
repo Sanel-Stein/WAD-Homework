@@ -1,17 +1,19 @@
 import { createStore } from 'vuex'
-
+import data from './data/json/myjson.json';
 
 export default createStore({
     strict: true,
     state: {
-            // productList should be placed here
-            posts: []
+            // Posts from json
+            posts: data
     },
   getters: {
-      },
+
+  },
   mutations: {
 
     },
   actions: {
+
     }
 })
