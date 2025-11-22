@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import data from './data/json/myjson.json';
+import data from './assets/json/myjson.json';
 
 export default createStore({
     strict: true,
