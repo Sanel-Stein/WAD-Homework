@@ -14,9 +14,9 @@
     
     padding-top: .5em;
     padding-bottom: .5em;
-    padding-left: .5em;
+    padding-left: 0;
     border: 1px solid #000000ff;
-    background-color: #1dbe00ff;
+    background-color: #4caf50;
     box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
     color: #000000ff;
 

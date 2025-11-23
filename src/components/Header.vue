@@ -21,7 +21,7 @@
     padding-bottom: .5em;
     padding-left: .5em;
     border: 1px solid #000000ff;
-    background-color: #1dbe00ff;
+    background-color: #4caf50;
     box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
 
     border-radius: 5px;
@@ -30,6 +30,8 @@
 
     text-transform: uppercase;
     text-align: center;
+
+    margin-bottom: 2em;
 }
 
 .header nav{

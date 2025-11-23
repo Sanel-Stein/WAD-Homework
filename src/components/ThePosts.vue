@@ -1,6 +1,4 @@
 <template>
-  <li class="item" v-for = "post in posts" :key="post.id">
-  </li>
     <div>
       <PostItem
       v-for="post in posts"
@@ -29,3 +27,15 @@ components: {
 };
 </script>
 
+<style scoped>
+
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width: 75%;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+</style>

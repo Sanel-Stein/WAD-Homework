@@ -20,11 +20,21 @@ export default createStore({
                 }
             }
             post.likes++;
+        },
+        ResetLikes: function (state) {
+            let post = null;
+            for (let i = 0; i < state.posts.length; i++){
+                post = state.posts[i];
+                post.likes = 0;
+            }
         }
     },
     actions: {
         IncreaseLikesAct: function (act, PostID) {
             act.commit("IncreaseLikes", PostID)
+        },
+        ResetLikesAct: function (act) {
+            act.commit("ResetLikes")
         }
     }   
 })

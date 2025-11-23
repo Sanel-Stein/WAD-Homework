@@ -9,12 +9,10 @@
     <img v-if="post.image" :src="post.image" class="post-image" />
 
     <p class="text">{{ post.text }}</p>
-    <button class = "like-Btn" v-on:click="IncreaseLikes(post.id)"> Like </button>
-    <a class="likes"> {{ post.likes }}</a>
-
-    <a href="#" class="like">
-      <img src="/images/like.png" class="icon" alt="Like" />
-    </a>
+    <div class="like-div">
+      <img src="/images/like.png" class="icon" alt="Like" v-on:click="IncreaseLikes(post.id)" />
+      <p class="likes"> {{ post.likes }} likes</p>
+    </div>
   </div>
 </template>
 
@@ -36,12 +34,10 @@ methods: {
 </script>
 
 
-
-
 <style scoped>
 .post {
   padding: 1em;
-  background-color: #fff;
+  background: #1e1e1e;
   border-radius: 5px;
   margin-bottom: 1rem;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
@@ -63,11 +59,24 @@ methods: {
 
 }
 
-.post-header {
+.like-div{
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.5em;
-  margin-bottom: 0.5em;
+}
+
+
+.post-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post-header p:first-of-type{
+    padding-left: 5px;
+    margin-right: auto;
+    text-align:left;
 }
 
 .icon {
