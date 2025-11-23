@@ -1,19 +1,3 @@
-# vuejs-ii
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# WAD-Homework
+Repository for 2025 WAD course. 
+Authors: Sanel Štein, Reio Soikka, Karl-Markus Hannust
