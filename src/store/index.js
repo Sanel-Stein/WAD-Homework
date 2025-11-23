@@ -1,19 +1,20 @@
 import { createStore } from 'vuex'
-import data from './assets/json/myjson.json';
+import data from "@/assets/json/myjson.json"
 
 export default createStore({
     strict: true,
     state: {
-            // Posts from json
-            posts: data
+        // data is loaded from json
+        // json image path should point to public folder
+        posts: data
     },
-  getters: {
-
-  },
-  mutations: {
+    getters: {
 
     },
-  actions: {
+    mutations: {
+
+    },
+    actions: {
 
     }
 })

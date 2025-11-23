@@ -5,7 +5,7 @@
             <router-link to="/signup">SignUp</router-link>
         </nav>
         <div>
-          <i class="menu_icon"><img src="@\components\icons\me.png" width="50" height="50" alt="My picture"></i>
+          <i class="menu_icon"><img src="/images/me.png" width="50" height="50" alt="My picture"></i>
         </div>
     </div>
   </template>

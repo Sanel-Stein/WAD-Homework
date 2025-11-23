@@ -1,11 +1,12 @@
 <script>
 export default {
-  props: {
-    post: {
-      type: Object,
-      required: true
-    }
+props: {
+  post: {
+    type: Object,
+    required: true
   }
+}
+
 };
 </script>
 
@@ -22,7 +23,7 @@ export default {
     <p class="text">{{ post.text }}</p>
 
     <a href="#" class="like">
-      <img src="@/components/icons/like.png" class="icon" alt="Like" />
+      <img src="/images/like.png" class="icon" alt="Like" />
     </a>
   </div>
 </template>
