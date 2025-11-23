@@ -1,15 +1,3 @@
-<script>
-export default {
-props: {
-  post: {
-    type: Object,
-    required: true
-  }
-}
-
-};
-</script>
-
 <template>
   <div class="post">
     <header class="post-header">
@@ -21,12 +9,32 @@ props: {
     <img v-if="post.image" :src="post.image" class="post-image" />
 
     <p class="text">{{ post.text }}</p>
+    <button class = "like-Btn" v-on:click="IncreaseLikes(post.id)"> Like </button>
+    <a class="likes"> {{ post.likes }}</a>
 
     <a href="#" class="like">
       <img src="/images/like.png" class="icon" alt="Like" />
     </a>
   </div>
 </template>
+
+<script>
+export default {
+props: {
+  post: {
+    type: Object,
+    required: true
+  }
+},
+
+methods: {
+  IncreaseLikes: function(PostID){
+    this.$store.dispatch("IncreaseLikesAct", PostID)
+  }
+}
+}
+</script>
+
 
 
 
@@ -37,6 +45,22 @@ props: {
   border-radius: 5px;
   margin-bottom: 1rem;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.like-Btn{
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  height: 40px;
+  width: 50px;
+
+}
+
+.likes{
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+
 }
 
 .post-header {
