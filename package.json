@@ -8,7 +8,13 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
     "core-js": "^3.8.3",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.16.3",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
@@ -19,5 +25,17 @@
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "gh-pages": "^6.3.0"
-  }
+  },
+  "description": "Repository for 2025 WAD course. \r Authors: Sanel Štein, Reio Soikka, Karl-Markus Hannust",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sanel-Stein/WAD-Sanel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sanel-Stein/WAD-Sanel/issues"
+  },
+  "homepage": "https://github.com/Sanel-Stein/WAD-Sanel#readme"
 }

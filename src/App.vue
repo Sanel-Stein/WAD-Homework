@@ -4,8 +4,10 @@
     <Header />
   </header>
 
-  <RouterView />
-  
+  <div class="content">
+    <RouterView />
+  </div>
+
   <footer>
     <Footer />
   </footer>
@@ -23,11 +25,11 @@ export default {
     Footer,
     RouterLink,
     RouterView
-  }
+  },
 };
 </script>
 
-<style scoped>
+<style>
 
 header {
   line-height: 1.5;
@@ -38,6 +40,16 @@ header {
 footer {
   height: 50px;
   width: 100%;
+}
+
+.content{
+  flex: 1;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 1024px) {

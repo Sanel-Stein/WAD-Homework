@@ -14,7 +14,6 @@ html, body {
   line-height: 1.6;
 }
 
-/* --- Links --- */
 a {
   color: #0f0f0f;
   text-decoration: none;
@@ -25,14 +24,12 @@ a:hover {
   color: #3d3d3d;
 }
 
-/* --- Headings --- */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   margin-bottom: 0.5em;
   color: #ffffff;
 }
 
-/* --- Paragraphs --- */
 p {
   margin-bottom: 1em;
 }

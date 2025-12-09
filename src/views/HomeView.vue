@@ -4,11 +4,26 @@ export default {
   components: {
     ThePosts
   },
-methods: {
-  ResetLikes: function(){
-    this.$store.dispatch("ResetLikesAct")
-  }
-}
+name: "App",
+    methods: {
+    Logout() {
+      fetch("http://localhost:3000/auth/logout", {
+          credentials: 'include', //  Don't forget to specify this if you need cookies
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        console.log('jwt removed');
+        //console.log('jwt removed:' + auth.authenticated());
+        this.$router.push("/login");
+        //location.assign("/");
+      })
+      .catch((e) => {
+        console.log(e);
+        console.log("error logout");
+      });
+    },
+  }, 
 };
 </script>
 
@@ -16,7 +31,7 @@ methods: {
   
   <main>
     <ThePosts />
-    <button id="reset" v-on:click="ResetLikes"> Reset likes </button>
+    <button   @click="Logout" class="center">Logout</button>
   </main>
 </template>
 

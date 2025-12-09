@@ -1,83 +1,69 @@
 <template>
   <div class="pageContainer">
     <div class="signupBox">
-      <form @submit.prevent="submitForm">
-        <label>Email</label>
-        <input type="email" v-model="email" required placeholder="Email" />
-
-        <label>Password</label>
-        <input type="password" v-model="password" required placeholder="Password"/>
-
-        <button type="submit">Sign Up</button>
-      </form>
-      <p v-if="unvalidReasons" class="reasonings">{{ unvalidReasons }}</p>
+      <h3>SignUp</h3>
+      <label for="email">Email</label>
+      <input type="email" name="email"  required v-model="email">
+      <label for="password">Password</label>
+      <input type="password" name="password" required v-model="password">
+      <div v-if="errMsg">{{errMsg}} </div>
+      <button @click="SignUp" class="SignUp">SignUp</button>
     </div>
   </div>
 </template>
 
 <script>
-export default{
-  data() {
-    return{
-      email: '',
-      password: '',
-      unvalidReasons: ''
-
+export default {
+name: "SignUp", 
+data: function() {
+    return {
+   email: '',
+   password: '',
+   errMsg: '',
+  }
+  },
+watch: {
+    password(value) {
+      this.password = value;
+      this.validatePassword(value);
     }
   },
   methods: {
-    passwordValidation(password) {
-      const reasons = [];
-
-      if (password.length < 8) {
-        reasons.push("Password must be at least 8 characters.");
+validatePassword(value) {
+      if (value.length < 8 || value.length >= 16 || !/[A-Z]/.test(value) || !/[0-9]/.test(value)) {
+        this.errMsg = "Password must be at least 8 characters  and less than 16 characters, it must include a capital letter and at least one number"
+      }else{
+      this.errMsg = ''
       }
-
-      if (password.length > 15) {
-        reasons.push("Password must not be more than 15 characters.");
-      }
-
-      if (!/[A-Z]/.test(password)) {
-        reasons.push("Password must contain at least one uppercase alphabet character.");
-      }
-
-      const lowercaseLetters = password.match(/[a-z]/g) || [];
-      if (lowercaseLetters.length < 2){
-        reasons.push("Password must contain at least two lowercase alphabet characters.");
-      }
-
-      if (!/[0-9]/.test(password)) {
-        reasons.push("Password must contain at least one numeric value.");
-      }
-
-      if (!/^[A-Z]/.test(password)) {
-        reasons.push("Password must start with an uppercase alphabet character.");
-      }
-
-      if(!password.includes("_")){
-        reasons.push("Password must include the character “_”.")
-      }
-
-      return reasons
     },
-    submitForm() {
-      const reasons = this.passwordValidation(this.password)
-      if (reasons.length){
-        this.unvalidReasons = reasons.join("\n");
-        return;
-      }
-
-
-      console.log('Signup data:', this.username, this.password);
-      this.email = '';
-      this.password = '';
-      this.unvalidReasons = '';
-    }
+SignUp() {
+      var data = {
+        email: this.email,
+        password: this.password
+      };
+      fetch("http://localhost:3000/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+          credentials: 'include', 
+          body: JSON.stringify(data),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+      console.log(data);
+      this.$router.push("/");
+      })
+      .catch((e) => {
+        console.log(e);
+        console.log("error");
+      });
+    },
+  }, 
   }
-}
 </script>
 
-<style>
+<style scoped>
 body {
   margin: 0;
   padding: 0;
@@ -86,17 +72,20 @@ body {
 
 .pageContainer {
   display: flex;
+  height: 75vh;
   justify-content: center;
   align-items: center;
-  min-height: 83.54vh;
-  margin: 0;
+  margin: 0 auto;
+  width: 75%;
 }
 
 .signupBox {
-  max-width: 400px;
+  text-align: center;
   padding: 2rem;
   border: 2px solid #ccc;
   border-radius: 16px;
+  margin: 0 auto;
+  width: 50%;
 }
 
 .signupBox label {
@@ -116,7 +105,9 @@ input {
 }
 
 button {
-  width: 100%;
+  display: block;
+  margin: 0 auto;
+  width: 50%;
   padding: 0.7rem;
   background-color: #42b983;
   color: white;
