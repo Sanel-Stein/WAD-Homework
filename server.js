@@ -16,9 +16,36 @@ app.use(cookieParser());
 
 const secret = "gdgdhdbcb770785rgdzqws";
 const maxAge = 60 * 60;
+
 const generateJWT = (id) => {
     return jwt.sign({ id }, secret, { expiresIn: maxAge })
 }
+
+app.get('/auth/authenticate', async (req, res) => {
+    const token = req.cookies.jwt;
+    let authenticated = false;
+    try {
+        if (token) {
+            await jwt.verify(token, secret, (err) => {
+                if (err){
+                    console.log(err.message);
+                    console.log('token is not verified');
+                    res.send({"authenticated": authenticated});
+                } else {
+                    console.log('author is authenticated');
+                    authenticated = true;
+                    res.send({"authenticated": authenticated});
+                }
+            });
+        } else{
+            console.log('author is not authenticated');
+            res.send({ "authenticated": authenticated });
+        }
+    } catch (err) {
+        console.error(err.message);
+        res.status(400).send(err.message);
+    }
+});
 
 app.post('/', async(req, res) => {
     try {
@@ -90,6 +117,12 @@ app.post('/auth/signup', async(req, res) => {
     try {
         console.log("a signup request has arrived");
         const { email, password } = req.body;
+        if (!email || !password){
+            return res.status(400).send("Email and password are required");
+        }
+        if (password.length < 8 || password.length >= 16 || !/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
+            return res.status(400).send("Password does not meet expectations!");
+        }
         const salt = await bcrypt.genSalt();
         const bcryptPassword = await bcrypt.hash(password, salt)
         const authUser = await pool.query(
@@ -131,6 +164,7 @@ app.get('/auth/logout', (req, res) => {
     console.log('delete jwt request arrived');
     res.status(202).clearCookie('jwt').json({ "Msg": "cookie cleared" }).send
 });
+
 
 app.listen(port, () => {
     console.log("Server is listening to port " + port)

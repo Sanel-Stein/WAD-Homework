@@ -60,7 +60,7 @@ SignUp() {
       });
     },
   }, 
-  }
+}
 </script>
 
 <style scoped>

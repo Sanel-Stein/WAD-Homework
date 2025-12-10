@@ -1,20 +1,57 @@
 <template>
   <div class="pageContainer">
     <div class="LogInBox">
-      <form @submit.prevent="submitForm">
+      <form @submit.prevent="login">
         <label>Email</label>
-        <input type="email" v-model="email" required placeholder="Email" />
-
+        <input type="email" name="email" required v-model="email" placeholder="Email" />
         <label>Password</label>
-        <input type="password" v-model="password" required placeholder="Password"/>
+        <input type="password" name="password" required v-model="password" placeholder="Password"/>
         <div class="container">
-            <button type="submit">Login</button>
+            <button @click='LogIn' type="submit">Login</button>
             <button @click='this.$router.push("/api/signup")' class="center">Signup</button>
         </div>
       </form>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+name: "LogIn", 
+data: function() {
+    return {
+      email: '',
+      password: '',
+  }
+  },
+  methods: {
+    LogIn() {
+          let data = {
+            email: this.email,
+            password: this.password
+          };
+          fetch("http://localhost:3000/auth/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+              credentials: 'include',
+              body: JSON.stringify(data),
+          })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            location.assign("/");
+          })
+          .catch((e) => {
+            console.log(e);
+            console.log("error");
+          });
+    },
+  }, 
+}
+
+</script>
 
 <style scoped>
 body {

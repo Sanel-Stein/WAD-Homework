@@ -4,11 +4,20 @@ import SignUp from '../views/SignUp.vue'
 import LogIn from '../views/LogIn.vue'
 import Contacts from '../views/Contacts.vue'
 import AddPost from '../views/AddPost.vue'
+import auth from "../auth";
 
 const routes = [{
         path: '/',
         name: 'home',
-        component: HomeView
+        component: HomeView,
+        beforeEnter: async(to, from, next) => {
+            let authResult = await auth.authenticated();
+            if (!authResult){
+                next('/api/login')
+            } else{
+                next();
+            }
+        }
     },
     {
         path: '/api/signup',
@@ -29,11 +38,6 @@ const routes = [{
         path: '/api/addpost',
         name: 'addpost',
         component: AddPost
-    },
-    { 
-        path: "/:catchAll(.*)",
-        name: "home",
-        component: HomeView,
     }
 ]
 

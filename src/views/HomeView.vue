@@ -1,8 +1,15 @@
 <script>
 import ThePosts from '../components/ThePosts.vue'
+import auth from "../auth";
+
 export default {
   components: {
     ThePosts
+  },
+  data: function(){
+    return {
+      authResult: auth.authenticated()
+    }
   },
 name: "App",
     methods: {
@@ -15,7 +22,7 @@ name: "App",
         console.log(data);
         console.log('jwt removed');
         //console.log('jwt removed:' + auth.authenticated());
-        this.$router.push("/login");
+        this.$router.push("/api/login");
         //location.assign("/");
       })
       .catch((e) => {
