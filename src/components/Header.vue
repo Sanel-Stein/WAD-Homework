@@ -1,10 +1,9 @@
   <template>
   <div class="header">
         <nav>
-            <router-link to="/">Home</router-link> |
+            <router-link to="/api/posts">Home</router-link> |
             <router-link to="/api/login">LogIn</router-link> |
-            <router-link to="/api/contacts">Contacts</router-link> |
-            <router-link to="/api/addpost">AddPost</router-link> 
+            <router-link to="/api/contacts">Contacts</router-link> 
         </nav>
         <div>
           <i class="menu_icon"><img src="/images/me.png" width="50" height="50" alt="My picture"></i>

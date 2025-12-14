@@ -41,7 +41,7 @@ data: function() {
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            location.assign("/");
+            location.assign("/api/posts");
           })
           .catch((e) => {
             console.log(e);

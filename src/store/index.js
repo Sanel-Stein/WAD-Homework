@@ -11,6 +11,7 @@ export default createStore({
     getters: {
     },
     mutations: {
+        /*
         IncreaseLikes: function (state, PostID) {
             let post = null;
             for (let i = 0; i < state.posts.length; i++){
@@ -28,13 +29,16 @@ export default createStore({
                 post.likes = 0;
             }
         }
+            */
     },
     actions: {
+        /*
         IncreaseLikesAct: function (act, PostID) {
             act.commit("IncreaseLikes", PostID)
         },
         ResetLikesAct: function (act) {
             act.commit("ResetLikes")
         }
+            */
     }   
 })

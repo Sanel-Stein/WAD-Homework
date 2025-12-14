@@ -7,7 +7,7 @@ import AddPost from '../views/AddPost.vue'
 import auth from "../auth";
 
 const routes = [{
-        path: '/',
+        path: '/api/posts',
         name: 'home',
         component: HomeView,
         beforeEnter: async(to, from, next) => {

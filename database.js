@@ -4,7 +4,7 @@ const pool = new Pool({
     password: "postgres",
     database: "WADServer",
     host: "localhost",
-    port: "5432"
+    port: "5433"
 });
 
 const execute = async(query1, query2) => {
