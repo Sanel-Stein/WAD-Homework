@@ -5,6 +5,7 @@ import LogIn from '../views/LogIn.vue'
 import Contacts from '../views/Contacts.vue'
 import AddPost from '../views/AddPost.vue'
 import auth from "../auth";
+import PostView from '@/views/PostView.vue'
 
 const routes = [{
         path: '/api/posts',
@@ -18,6 +19,11 @@ const routes = [{
                 next();
             }
         }
+    },
+    {
+        path: '/api/posts/:id',
+        name: 'PostView',
+        component: PostView
     },
     {
         path: '/api/signup',

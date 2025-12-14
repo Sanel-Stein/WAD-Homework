@@ -85,18 +85,28 @@ app.get('/api/posts/:id', async(req, res) => {
     }
 });
 
-app.put('/api/posts/:id', async(req, res) => {
-    try {
-        const { id } = req.params;
-        const post = req.body;
-        console.log("update request has arrived");
-        const updatepost = await pool.query(
-            "UPDATE posttable SET (body, date) = ($2, CURRENT_DATE) WHERE id = $1 RETURNING*", [id, post.title, post.body]
-        );
-        res.json(updatepost);
-    } catch (err) {
-        console.error(err.message);
+app.put('/api/posts/:id', async (req, res) => {
+  try {
+    const { id } = req.params;          // post ID from URL
+    const { body } = req.body;          // new body from request JSON
+
+    if (!body) {
+      return res.status(400).json({ error: "Post body is required" });
     }
+
+    // Update the post
+    const result = await pool.query(
+      "UPDATE posttable SET body = $1 WHERE id = $2 RETURNING *",
+      [body, id]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: "Post not found" });
+    }
+
+    res.json(result.rows[0]); // return the updated post
+  } catch (err) {
+    console.error(err.message);}
 });
 
 app.delete('/api/posts/:id', async(req, res) => {
@@ -104,7 +114,7 @@ app.delete('/api/posts/:id', async(req, res) => {
         const { id } = req.params;
         console.log("delete a post request has arrived");
         const deletepost = await pool.query(
-            "DELETE FROM posttable WHERE id = $1 RETURNING*", [id]
+            "DELETE FROM posttable WHERE id = $1", [id]
         );
         res.json(deletepost);
     } catch (err) {

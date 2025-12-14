@@ -31,7 +31,7 @@ export default {
       })
       .then((response) => {
         console.log(response.data);
-        this.$router.push("/");
+        this.$router.push("/api/posts");
       })
       .catch((e) => {
         console.log(e);
@@ -71,6 +71,7 @@ input {
   box-sizing: border-box;
   border: none;
   border-bottom: 1px solid white;
+  border-radius: 1px;
   color: black;
 }
 button {
